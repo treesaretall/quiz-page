@@ -5,6 +5,13 @@ body {
     background-position: center;
     font-family: Arial, sans-serif;
   }
+  header {
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 3vmax;
+    color: aliceblue;
+    text-align: right
+  }
   
   #quiz-container {
     max-width: 600px;

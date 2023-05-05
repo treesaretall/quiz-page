@@ -1,4 +1,18 @@
+// Timer
+let timerEl = document.getElementById('timer');
+let secondsLeft = 60;
+
+function starttimer() {
+    let timerInterval = setInterval(function(){
+        secondsLeft--;
+        timerEl.textContent = secondsLeft + " seconds left!"
+    },1000);
+}
+
+
+
 //create timer that begins when quiz is started
+//create pages for questions
 //create event listeners for 4 buttons
 //create 1 correct and 3 incorrect button answers
 //when answer is selected, either incorrect or correct is shown
