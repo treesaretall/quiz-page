@@ -9,9 +9,19 @@
 </head>
 <body>
     <header id="timer"></header>
-    <div id="quiz-container">
-        <h1></h1>
-        <div id="question-container"></div>
+    <div class="container">
+        <div id="question-container" class="hide"></div>
+            <div id="question">Question</div>
+            <div id="answe-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        <div class="controls">
+            <button id="start-button" class="start-button btn">Start</button>
+            <button id="next-button" class="next-button btn hide">Next</button>
+        </div>
     </div>
 
     <script src="./assets/js/script.js"></script>
