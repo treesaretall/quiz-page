@@ -1,25 +1,73 @@
+*, *::before, ::after {
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+}
 body {
-    background-image: url("https://media.cnn.com/api/v1/images/stellar/prod/180614121226-peaks-of-europe-tease-2.jpg?q=w_2317,h_1303,x_0,y_0,c_fill");
-    background-repeat: no-repeat;
-    background-size:auto;
-    background-position: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  #quiz-container {
-    max-width: 600px;
-    margin: 0 auto;
-    color: aliceblue ;
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #ccc;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  #question-container {
-    margin-bottom: 20px;
-  }
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://3.bp.blogspot.com/-_wFRydnnl9E/WtTUN_X0RpI/AAAAAAAABLw/iJKhQKYMLBMRdJfd1nDAqdIfhgUqyF19ACEwYBhgL/s1600/1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:aliceblue;
+}
+.container {
+  max-width: 80%;
+  background-color: none;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+.btn-grid {
+  display: grid;
+  gap: 10px;
+  padding: 1vh;
+}
+:root {
+  --hue-normal: none;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+.btn {
+  --hue: var(--hue-normal);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 3px;
+}
+
+.btn.correct {
+  --hue: var(--hue-correct)
+}
+
+.btn.wrong {
+  color: azure;
+  --hue: var(--hue-wrong)
+}
+
+.start-button, .next-button {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: flex;
+  margin: 0 auto;
+}
+
+button:hover {
+  box-shadow: 0 0 20px 5px;
+}
+
+.hide {
+  display: none;
+}
+

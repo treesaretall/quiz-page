@@ -8,9 +8,22 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <div id="quiz-container">
-        <h1>Quiz</h1>
-        <div id="question-container"></div>
+    <header id="countdown"></header>
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <div id="highScoresList"></div>
+            <button id="start-button" class="start-button btn">You have 60 seconds to complete the quiz. If you get a question wrong, 4 seconds is removed from the timer!</button>
+            <button id="next-button" class="next-button btn hide">Next</button>
+        </div>
     </div>
 
     <script src="./assets/js/script.js"></script>
