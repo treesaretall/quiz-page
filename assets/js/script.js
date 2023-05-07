@@ -1,10 +1,13 @@
-const startButtonEl = document.getElementById("start-button")
-const nextButtonEl = document.getElementById("next-button")
-const questionContainerEl = document.getElementById('question-container')
-const questionEl = document.getElementById('question')
-const answerButtonEl = document.getElementById('answer-buttons')
-const highScoresEl = document.getElementById('highScoresList')
+const startButtonEl = document.getElementById("start-button");
+const nextButtonEl = document.getElementById("next-button");
+const questionContainerEl = document.getElementById('question-container');
+const questionEl = document.getElementById('question');
+const answerButtonEl = document.getElementById('answer-buttons');
+const highScoresEl = document.getElementById('highScoresList');
+const countdownEl = document.getElementById('countdown');
+let secondsLeft = 60;
 let score = parseInt(localStorage.getItem('score')) || 0;
+
 
 startButtonEl.addEventListener('click', startGame)
 nextButtonEl.addEventListener('click', function() {
@@ -18,6 +21,20 @@ nextButtonEl.addEventListener('click', function() {
     }
 });
 
+function setTimer() {
+
+    let timerInterval = setInterval(function() {
+        secondsLeft--;
+        countdownEl.textContent = secondsLeft + " seconds left!"
+
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+            secondsLeft = 60;
+            showEndScreen()
+        }
+    }, 1000)
+}
+
 function startGame() {
     startButtonEl.classList.add('hide');
     highScoresEl.classList.add('hide')
@@ -29,6 +46,7 @@ function startGame() {
     score = 0;
     localStorage.setItem('score', score);
     setNextQuestion();
+    setTimer();
 }
 
 function setNextQuestion() {
