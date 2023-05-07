@@ -4,7 +4,6 @@ const questionContainerEl = document.getElementById('question-container')
 const questionEl = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
 const highScoresEl = document.getElementById('highScoresList')
-let shuffledQuestions , currentQuestionIndex;
 let score = parseInt(localStorage.getItem('score')) || 0;
 
 startButtonEl.addEventListener('click', startGame)
