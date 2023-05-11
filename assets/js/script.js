@@ -7,7 +7,7 @@ const highScoresEl = document.getElementById('highScoresList');
 const countdownEl = document.getElementById('countdown');
 let secondsLeft = 60;
 let score = parseInt(localStorage.getItem('score')) || 0;
-
+let timerInterval;
 
 startButtonEl.addEventListener('click', startGame)
 nextButtonEl.addEventListener('click', function() {
@@ -23,7 +23,7 @@ nextButtonEl.addEventListener('click', function() {
 
 function setTimer() {
 
-    let timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         secondsLeft--;
         countdownEl.textContent = secondsLeft + " seconds left!"
 
@@ -61,9 +61,9 @@ function showQuestion(question) {
         var button = document.createElement('button');
         button.innerText = answer.text;
         button.classList.add('btn');
-        if (answer.correct) {
+    if (answer.correct) {
             button.dataset.correct = answer.correct;
-        }
+    }
         button.addEventListener('click', selectAnswer);
         answerButtonEl.appendChild(button);
     }
@@ -87,12 +87,14 @@ function selectAnswer(e) {
     if (correct){
         score++
         localStorage.setItem('score', score);
-    }
+    } else {
+        secondsLeft -= 4
+    };
     if (currentQuestionIndex < shuffledQuestions.length - 1) {
         nextButtonEl.classList.remove('hide');
     } else {
         showEndScreen();
-    }
+    };
 }
 
 function setStatusClass(element, correct) {
@@ -112,6 +114,8 @@ function clearStatusClass(element) {
 function showEndScreen() {
     highScoresEl.classList.remove('hide')
     questionContainerEl.classList.add('hide');
+    clearInterval(timerInterval);
+    secondsLeft = 60;
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     const score = localStorage.getItem("score");
     const initials = prompt("Enter your initials:");
@@ -125,6 +129,7 @@ function showEndScreen() {
     .join("");
     startButtonEl.innerHTML="Retry?"
     startButtonEl.classList.remove('hide')
+
 }
 
 const questions = [
